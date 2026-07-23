@@ -1,6 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
+import ReleaseActions from "@/components/cards/ReleaseActions";
 
 type LastReleaseProps = {
+	releaseSlug: string;
 	title: string;
 	artistName: string;
 	releaseDate: string;
@@ -11,6 +14,7 @@ type LastReleaseProps = {
 };
 
 export default function LastRelease({
+	releaseSlug,
 	title,
 	artistName,
 	releaseDate,
@@ -20,15 +24,19 @@ export default function LastRelease({
 	coverAlt,
 }: LastReleaseProps) {
 	return (
-		<section className="w-full max-w-6xl overflow-hidden rounded-lg border border-border/70 bg-[linear-gradient(135deg,rgba(64,128,128,0.24),rgba(20,25,25,0.94)_55%)] shadow-2xl shadow-black/20">
+		<section className="w-full max-w-6xl overflow-hidden border border-border/70 bg-[linear-gradient(135deg,rgba(64,128,128,0.24),rgba(20,25,25,0.94)_55%)] shadow-2xl shadow-black/20">
 			<div className="flex flex-col md:flex-row gap-0">
-				<div className="relative aspect-square w-full overflow-hidden bg-black/20">
+				<Link
+					href={`/releases/${releaseSlug}`}
+					aria-label={`Ouvrir la page de ${title}`}
+					className="group relative aspect-square w-full overflow-hidden bg-black/20"
+				>
 					{coverSrc ? (
 						<Image
 							src={coverSrc}
 							alt={coverAlt ?? `Cover de ${title}`}
 							fill
-							className="object-cover aspect-square"
+							className="object-cover aspect-square transition-transform duration-300 group-hover:scale-102"
 							priority
 						/>
 					) : (
@@ -40,47 +48,38 @@ export default function LastRelease({
 					<div className="absolute left-5 top-5 rounded-full border border-white/20 bg-black/35 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-foreground backdrop-blur-md sm:left-7 sm:top-7">
 						Dernière sortie
 					</div>
-
-					{/* <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 md:p-8">
-						<p className="text-sm tracking-[0.35em] text-white/70">
-							{artistName}
-						</p>
-						<h1 className="mt-3 max-w-xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-							{title}
-						</h1>
-					</div> */}
-				</div>
+				</Link>
 
 				<div className="flex flex-col w-full justify-end gap-8 p-5 sm:p-7 md:p-10">
 					<div>
-						<p className="text-base tracking-[0.35em] text-accent">	
+						<p className="text-base tracking-[0.35em] text-accent">
 							{artistName}
 						</p>
-						<h1 className="mt-3 max-w-xl text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
+						<Link
+							href={`/releases/${releaseSlug}`}
+							className="mt-3 inline-block max-w-xl text-3xl font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80 sm:text-5xl"
+						>
 							{title}
-						</h1>
+						</Link>
 					</div>
 
-					<dl className="grid gap-4 sm:grid-cols-2">
+					<dl className="flex flex-col gap-4">
 						<div className="rounded-xl border border-border/70 bg-black/20 p-4 backdrop-blur-sm">
-							<dd className="text-lg font-medium text-foreground">
-								{releaseType} · {nbTitres} titres
-							</dd>
-						</div>
-						<div className="rounded-xl border border-border/70 bg-black/20 p-4 backdrop-blur-sm">
-							<dd className="text-lg font-medium text-foreground">
-								{releaseDate}
+							<dd className="flex text-base font-medium text-foreground gap-3">
+								<span>{releaseType}</span>
+								<span>•</span>
+								<span>{releaseDate}</span>
+								<span>•</span>
+								<span>{nbTitres} titres</span>
 							</dd>
 						</div>
 
 
-						<div className="rounded-xl border border-border/70 bg-black/20 p-4 backdrop-blur-sm sm:col-span-2">
-							<dt className="text-xs uppercase tracking-[0.3em] text-foreground/55">
-								Lecture
-							</dt>
-							<dd className="mt-2 text-lg font-medium text-foreground">
-								barre de lecture
-							</dd>
+						<div className="flex flex-col sm:flex-row items-center gap-3 mt-3">
+							<ReleaseActions releaseSlug={releaseSlug} />
+							<button className="w-full sm:w-auto rounded-full border border-border/70 bg-black/20 px-5 py-3 text-sm text-foreground/70">
+								Ecouter en streaming
+							</button>
 						</div>
 					</dl>
 				</div>
