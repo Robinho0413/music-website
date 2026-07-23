@@ -68,7 +68,7 @@ export default async function StreamingPage({ params }: StreamingPageProps) {
 				<section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 					{releasePlatforms.map((platform) => {
 						const Icon = platformIcons[platform.name] ?? BsArrowUpRight;
-						const releaseHref = release.streamingLinks?.[platform.name];
+						const releaseHref = release.streamingLinks?.[platform.name] ?? "";
 
 						return (
 							<Link
@@ -76,7 +76,7 @@ export default async function StreamingPage({ params }: StreamingPageProps) {
 								href={releaseHref}
 								target="_blank"
 								rel="noreferrer"
-								className="group flex min-h-40 flex-col justify-between border border-border/70 bg-black/20 p-5 shadow-lg shadow-black/15 transition hover:-translate-y-1 hover:border-primary/60"
+								className="group flex min-h-34 flex-col justify-between border border-border/70 bg-black/20 p-5 shadow-lg shadow-black/15 transition hover:-translate-y-1 hover:border-primary/60"
 							>
 								<div className="flex items-start justify-between gap-4">
 									<div>
