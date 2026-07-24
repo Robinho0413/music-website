@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import LastRelease from "@/components/cards/lastRelease";
 import AllReleases from "@/components/cards/allReleases";
 import { releases } from "@/lib/releases";
+
+export const metadata: Metadata = {
+  title: "Accueil",
+  description: "Site officiel de robcz: dernières sorties, streaming et plateformes.",
+};
 
 export default function Home() {
   return (
