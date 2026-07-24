@@ -77,9 +77,12 @@ export default function LastRelease({
 
 						<div className="flex flex-col sm:flex-row items-center gap-3 mt-3">
 							<ReleaseActions releaseSlug={releaseSlug} />
-							<button className="w-full sm:w-auto rounded-full border border-border/70 bg-black/20 px-5 py-3 text-sm text-foreground/70">
+							<Link
+								href={`/releases/${releaseSlug}/streaming`}
+								className="w-full sm:w-auto text-center min-w-40 rounded-full border border-border/70 bg-black/20 px-5 py-3 text-sm text-foreground/70 transition hover:border-primary/60 hover:text-foreground"
+							>
 								Ecouter en streaming
-							</button>
+							</Link>
 						</div>
 					</dl>
 				</div>

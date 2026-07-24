@@ -56,7 +56,7 @@ export default async function StreamingPage({ params }: StreamingPageProps) {
 
 	return (
 		<main className="min-h-full bg-[radial-gradient(circle_at_top,rgba(64,128,128,0.22),transparent_35%),linear-gradient(180deg,#0f1414_0%,#141919_38%,#101414_100%)] text-foreground">
-			<div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 pb-12 pt-28 sm:px-8 lg:px-12">
+			<div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 pb-12 pt-32 sm:px-8 lg:px-12">
 				<div className="max-w-3xl space-y-4">
 					<p className="text-sm uppercase tracking-[0.35em] text-accent">Streaming</p>
 					<h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">{release.title}</h1>

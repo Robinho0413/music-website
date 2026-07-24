@@ -22,7 +22,7 @@ export default function ReleaseActions({ releaseSlug }: ReleaseActionsProps) {
 
 				playRelease(releaseSlug);
 			}}
-			className="w-full sm:w-auto justify-center inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-black transition hover:scale-[1.02] cursor-pointer"
+			className="w-full sm:w-auto min-w-40 justify-center inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-black transition hover:scale-[1.02] cursor-pointer"
 		>
 			{isActivePlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 fill-black" />}
 			{isActivePlaying ? "Pause" : "Lecture"}

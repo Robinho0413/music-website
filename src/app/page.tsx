@@ -5,7 +5,7 @@ import { releases } from "@/lib/releases";
 export default function Home() {
   return (
     <div className="flex min-h-full flex-1 bg-background text-foreground">
-      <main className="mx-auto flex flex-col w-full max-w-7xl flex-1 items-center px-5 py-8 sm:px-8 lg:px-12 mt-20 gap-12">
+      <main className="mx-auto flex flex-col w-full max-w-7xl flex-1 items-center px-5 py-8 sm:px-8 lg:px-12 mt-24 gap-12">
         <LastRelease
           releaseSlug={releases[0].slug}
           title={releases[0].title}
