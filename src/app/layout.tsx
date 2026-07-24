@@ -4,7 +4,8 @@ import "./globals.css";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import { AudioPlayerProvider } from "@/components/player/AudioPlayerProvider";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://robcz.com";
 const siteName = "robcz";
@@ -82,6 +83,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <SpeedInsights/>
+        <Analytics/>
         <AudioPlayerProvider>
           <NavBar />
           <div className="flex-1">{children}</div>
