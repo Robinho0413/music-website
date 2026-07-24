@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import { AudioPlayerProvider } from "@/components/player/AudioPlayerProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://robcz.com";
 const siteName = "robcz";
@@ -80,6 +81,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <SpeedInsights/>
         <AudioPlayerProvider>
           <NavBar />
           <div className="flex-1">{children}</div>
