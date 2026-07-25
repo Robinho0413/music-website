@@ -15,6 +15,7 @@ export type Release = {
 	coverSrc: string;
 	coverAlt: string;
 	beatmaker: string;
+	youtubeVideoUrl?: string;
 	streamingLinks?: Partial<Record<string, string>>;
 	tracks: ReleaseTrack[];
 };
@@ -71,6 +72,7 @@ export const releases: Release[] = [
 		coverSrc: "/images/Cover_Vide.png",
 		coverAlt: "Cover de Vide",
 		beatmaker: "Spleen",
+		youtubeVideoUrl: "https://youtu.be/xpjxokK9hCo",
 		streamingLinks: {
 			Spotify: "https://open.spotify.com/intl-fr/album/4KGNmVd5QHKCdPVbzSnDFx?si=y-OdWyp6S26d_Ml1xiAMEw",
 			Deezer: "https://link.deezer.com/s/33UER0FOhiUdzVehGAu92",

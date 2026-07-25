@@ -15,6 +15,43 @@ export function generateStaticParams() {
 	return releases.map((release) => ({ slug: release.slug }));
 }
 
+function getYoutubeEmbedUrl(youtubeUrl: string) {
+	try {
+		const parsedUrl = new URL(youtubeUrl);
+		const hostname = parsedUrl.hostname.replace(/^www\./, "");
+
+		if (hostname === "youtu.be") {
+			const videoId = parsedUrl.pathname.replace(/^\//, "");
+			return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+		}
+
+		if (hostname === "youtube.com" || hostname === "m.youtube.com") {
+			if (parsedUrl.pathname === "/watch") {
+				const videoId = parsedUrl.searchParams.get("v");
+				if (videoId) {
+					return `https://www.youtube.com/embed/${videoId}`;
+				}
+			}
+
+			if (parsedUrl.pathname === "/playlist") {
+				const playlistId = parsedUrl.searchParams.get("list");
+				if (playlistId) {
+					return `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
+				}
+			}
+
+			if (parsedUrl.pathname.startsWith("/shorts/")) {
+				const videoId = parsedUrl.pathname.split("/")[2];
+				return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+			}
+		}
+	} catch {
+		return null;
+	}
+
+	return null;
+}
+
 export async function generateMetadata({ params }: ReleasePageProps): Promise<Metadata> {
 	const { slug } = await params;
 	const release = getReleaseBySlug(slug);
@@ -34,6 +71,9 @@ export async function generateMetadata({ params }: ReleasePageProps): Promise<Me
 export default async function ReleasePage({ params }: ReleasePageProps) {
 	const { slug } = await params;
 	const release = getReleaseBySlug(slug);
+	const youtubeEmbedUrl = release?.youtubeVideoUrl
+		? getYoutubeEmbedUrl(release.youtubeVideoUrl)
+		: null;
 
 	if (!release) {
 		notFound();
@@ -122,6 +162,26 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
 						</div>
 					</aside>
 				</section>
+
+				{youtubeEmbedUrl ? (
+					<section className="overflow-hidden border border-border/70 bg-black/20 shadow-lg shadow-black/15">
+						<div className="border-b border-border/70 px-5 py-4 sm:px-6">
+							<p className="text-xs uppercase tracking-[0.35em] text-accent">Vidéo</p>
+						</div>
+						<div className="p-3 sm:p-4">
+							<div className="overflow-hidden border border-border/60 bg-black">
+								<iframe
+									title={`Vidéo YouTube de ${release.title}`}
+									src={youtubeEmbedUrl}
+									className="aspect-video w-full"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									referrerPolicy="strict-origin-when-cross-origin"
+									allowFullScreen
+								/>
+							</div>
+						</div>
+					</section>
+				) : null}
 			</div>
 		</main>
 	);
