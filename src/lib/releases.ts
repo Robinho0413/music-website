@@ -34,7 +34,7 @@ export const releases: Release[] = [
 		streamingLinks: {
 			Spotify: "https://open.spotify.com/intl-fr/album/4lIibw8sSMfOTNlPzOfnQZ?si=7e_Z8jnwT-yWkKKABB343g",
 			Deezer: "https://link.deezer.com/s/33YUXFGT262a7innvHZZT",
-			"Apple Music": "",
+			"Apple Music": "https://music.apple.com/fr/album/vie-de-famille-single/6796652398",
 			YouTube: "",
 			"Youtube Music": "",
 			"Amazon Music": "https://music.amazon.com/albums/B0HC9K2BZH?marketplaceId=ATVPDKIKX0DER&musicTerritory=FR&ref=dm_sh_mOcA9ZZU4mzmNYPqgifvoT8e7",
