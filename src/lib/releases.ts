@@ -22,6 +22,35 @@ export type Release = {
 
 export const releases: Release[] = [
 	{
+		slug: "vie-de-famille",
+		title: "Vie de famille",
+		artistName: "robcz",
+		releaseDate: "31 juillet 2026",
+		releaseType: "Single",
+		nbTitres: 1,
+		coverSrc: "/images/cover_vie-de-famille.png",
+		coverAlt: "Cover de Vie de famille",
+		beatmaker: "Iverrn",
+		streamingLinks: {
+			Spotify: "https://open.spotify.com/intl-fr/album/4lIibw8sSMfOTNlPzOfnQZ?si=7e_Z8jnwT-yWkKKABB343g",
+			Deezer: "https://link.deezer.com/s/33YUXFGT262a7innvHZZT",
+			"Apple Music": "",
+			YouTube: "",
+			"Youtube Music": "",
+			"Amazon Music": "https://music.amazon.com/albums/B0HC9K2BZH?marketplaceId=ATVPDKIKX0DER&musicTerritory=FR&ref=dm_sh_mOcA9ZZU4mzmNYPqgifvoT8e7",
+			Tidal: "https://tidal.com/album/548004576/",
+			Qobuz: "",
+		},
+		tracks: [
+			{
+				index: 1,
+				title: "Vie de famille",
+				duration: "2:36",
+				audioSrc: "/audio/Vie de famille.mp3",
+			},
+		],
+	},
+	{
 		slug: "le-sel-peut-bruler",
 		title: "Le sel peut brûler",
 		artistName: "robcz",

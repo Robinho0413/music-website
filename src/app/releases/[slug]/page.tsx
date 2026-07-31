@@ -158,6 +158,8 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
 							<div className="mt-4 space-y-3 text-sm text-foreground/75">
 								<p>Artiste-Interprète : {release.artistName}</p>
 								<p>Beatmaker : {release.beatmaker}</p>
+								<p>Composition : {release.artistName}, {release.beatmaker}</p>
+								<p>Production : {release.artistName}, {release.beatmaker}</p>
 							</div>
 						</div>
 					</aside>
