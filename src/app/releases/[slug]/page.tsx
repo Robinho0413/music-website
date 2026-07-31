@@ -156,10 +156,16 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
 						<div className="border border-border/70 bg-black/20 p-5 shadow-lg shadow-black/15">
 							<p className="text-xs uppercase tracking-[0.35em] text-accent">Crédits</p>
 							<div className="mt-4 space-y-3 text-sm text-foreground/75">
-								<p>Artiste-Interprète : {release.artistName}</p>
-								<p>Beatmaker : {release.beatmaker}</p>
-								<p>Composition : {release.artistName}, {release.beatmaker}</p>
-								<p>Production : {release.artistName}, {release.beatmaker}</p>
+								{release.credits.map((credit, creditIndex) => (
+									<div key={creditIndex} className="space-y-1">
+										<p className="font-medium text-base">
+											{credit.name}
+										</p>
+										<p>
+											{credit.role}
+										</p>
+									</div>
+								))}
 							</div>
 						</div>
 					</aside>

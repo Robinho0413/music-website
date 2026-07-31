@@ -14,7 +14,10 @@ export type Release = {
 	nbTitres: number;
 	coverSrc: string;
 	coverAlt: string;
-	beatmaker: string;
+	credits: {
+		name?: string;
+		role?: string;
+	}[];
 	youtubeVideoUrl?: string;
 	streamingLinks?: Partial<Record<string, string>>;
 	tracks: ReleaseTrack[];
@@ -30,7 +33,16 @@ export const releases: Release[] = [
 		nbTitres: 1,
 		coverSrc: "/images/cover_vie-de-famille.png",
 		coverAlt: "Cover de Vie de famille",
-		beatmaker: "Iverrn",
+		credits: [
+			{
+				name: "robcz",
+				role: "Auteur, Compositeur, Interprète, Producteur, Cover (based on design by fabrikasimf - Magnific.com)",
+			},
+			{
+				name: "Iverrn",
+				role: "Beatmaker, Compositeur, Producteur",
+			},
+		],
 		streamingLinks: {
 			Spotify: "https://open.spotify.com/intl-fr/album/4lIibw8sSMfOTNlPzOfnQZ?si=7e_Z8jnwT-yWkKKABB343g",
 			Deezer: "https://link.deezer.com/s/33YUXFGT262a7innvHZZT",
@@ -59,7 +71,16 @@ export const releases: Release[] = [
 		nbTitres: 3,
 		coverSrc: "/images/Cover_le-sel-peut-bruler-3.png",
 		coverAlt: "Cover de Le sel peut brûler",
-		beatmaker: "Spleen",
+		credits: [
+			{
+				name: "robcz",
+				role: "Auteur, Compositeur, Interprète, Producteur",
+			},
+			{
+				name: "Spleen",
+				role: "Beatmaker, Compositeur, Producteur",
+			}
+		],
 		streamingLinks: {
 			Spotify: "https://open.spotify.com/intl-fr/album/5B2CQu635oiLtKiDsOP0fe?si=PKhbdu6zRVyUxnx6VTzc2Q",
 			Deezer: "https://link.deezer.com/s/33UEyZ4dEmSJEIBzoO3kj",
@@ -100,7 +121,16 @@ export const releases: Release[] = [
 		nbTitres: 1,
 		coverSrc: "/images/Cover_Vide.png",
 		coverAlt: "Cover de Vide",
-		beatmaker: "Spleen",
+		credits: [
+			{
+				name: "robcz",
+				role: "Auteur, Compositeur, Interprète, Producteur",
+			},
+			{
+				name: "Spleen",
+				role: "Beatmaker, Compositeur, Producteur",
+			}
+		],
 		youtubeVideoUrl: "https://youtu.be/xpjxokK9hCo",
 		streamingLinks: {
 			Spotify: "https://open.spotify.com/intl-fr/album/4KGNmVd5QHKCdPVbzSnDFx?si=y-OdWyp6S26d_Ml1xiAMEw",
