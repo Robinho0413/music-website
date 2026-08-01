@@ -19,7 +19,7 @@ export const platformLinks: PlatformLink[] = [
     {
         name: "Apple Music",
         handle: "robcz",
-        href: "https://music.apple.com/fr/artist/robinho/1743322413",
+        href: "https://music.apple.com/fr/artist/robcz/6796782317",
     },
 	{
 		name: "YouTube",
