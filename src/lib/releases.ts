@@ -49,10 +49,10 @@ export const releases: Release[] = [
 			Deezer: "https://link.deezer.com/s/33YUXFGT262a7innvHZZT",
 			"Apple Music": "https://music.apple.com/fr/album/vie-de-famille-single/6796652398",
 			YouTube: "https://youtu.be/4Q9oi5qCUXU?si=FjY5IlbJkmlMoHrt",
-			"Youtube Music": "",
+			"Youtube Music": "https://music.youtube.com/watch?v=4Q9oi5qCUXU&si=dpXlPCZ5w1pkbDp1",
 			"Amazon Music": "https://music.amazon.com/albums/B0HC9K2BZH?marketplaceId=ATVPDKIKX0DER&musicTerritory=FR&ref=dm_sh_mOcA9ZZU4mzmNYPqgifvoT8e7",
 			Tidal: "https://tidal.com/album/548004576/",
-			Qobuz: "",
+			Qobuz: "https://www.qobuz.com/fr-fr/album/vie-de-famille-robcz/hhrhgdfkibin4",
 		},
 		tracks: [
 			{
